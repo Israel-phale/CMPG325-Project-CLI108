@@ -136,7 +136,7 @@ The project brief **only provided an IPv4 block (`10.41.0.0/16`)**. No IPv6 bloc
 | PC-A1, PC-A2 | PC-PT | Admin Department Workstations | FastEthernet (to SW3) |
 
 ### Physical Topology Diagram
-*[Screenshot of Packet Tracer physical topology to be inserted here]*
+![Physical Topology](diagrams/physical-topology.png)
 
 
 ---
