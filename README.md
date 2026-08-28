@@ -310,17 +310,4 @@ Stateless Address Autoconfiguration allows PCs to auto-configure IPv6 addresses 
 
 ---
 
-## 📌 Submission Status
-
-**This document is submitted for:**
-- **Milestone:** Milestone 1 - Client Design Review
-- **Client:** Mmabatho Water Research Laboratory (CLI-108)
-- **Project ID:** CMPG325-2026-108
-- **Student:** Israel Phale
-- **Student Number:** [41511425]
-- **Submission Date:** 23 August 2026
-- **Status:** ✅ Complete - Ready for Review
-
----
-
 *This document contains all required elements for Milestone 1 as per the project brief: Client Requirements, Physical Topology, Logical Topology, IP Addressing Plan, and Initial GitHub Repository.*
