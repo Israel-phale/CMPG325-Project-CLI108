@@ -9,7 +9,6 @@
 | **Industry** | Research |
 | **Student Name** | Israel Phale |
 | **Student Number** | [41511425] |
-| **Date** | 23 August 2026 |
 
 ---
 
