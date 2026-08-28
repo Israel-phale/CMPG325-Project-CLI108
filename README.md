@@ -164,7 +164,7 @@ The project brief **only provided an IPv4 block (`10.41.0.0/16`)**. No IPv6 bloc
 - **Reasoning:** Protects confidential customer records by restricting server access to authorised departments only
 
 ### Logical Topology Diagram
-*[Screenshot of logical topology with VLANs and IP addressing to be inserted here]*
+![Logical Topology](diagrams/logical-topology.png)
 
 
 ---
