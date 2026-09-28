@@ -263,8 +263,8 @@ The PCs have both IPv4 and IPv6 addresses configured automatically:
 
 | PC | IPv4 Address (DHCP) | IPv6 Address (SLAAC) | Evidence |
 |----|---------------------|----------------------|----------|
-| PC-R1 | 10.41.10.11 | FD00:108:1:10::... | [Screenshot](screenshots/PC-R1-ipconfig.png) |
-| PC-A1 | 10.41.20.11 | FD00:108:1:20::... | [Screenshot](screenshots/PC-A1-ipconfig.png) |
+| PC-R1 | 10.41.10.11 | FD00:108:1:10::... | [Screenshot](screenshots/PC-R2-ipconfig.png) |
+| PC-A1 | 10.41.20.11 | FD00:108:1:20::... | [Screenshot](screenshots/PC-A2-ipconfig.png) |
 
 ### Security ACL Verification
 
