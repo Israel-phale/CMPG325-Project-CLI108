@@ -235,9 +235,61 @@ To address the requirement that "customer records are confidential - access must
 
 ---
 
-## 🧪 Testing Plan *(To be executed in Milestone 2)*
+## 🧪 Testing Results (Milestone 2)
 
-This section outlines the testing strategy that will be executed once the network is fully configured in Milestone 2. Test results and screenshots will be added at that time.
+All tests have been executed successfully. The network is fully operational.
+
+### IPv4 Connectivity Tests
+
+| Test | Source | Destination | Expected | Actual | Evidence |
+|------|--------|-------------|----------|--------|----------|
+| Intra-VLAN | PC-R1 | PC-R2 (10.41.10.10) | ✅ Success | ✅ Success | — |
+| Inter-VLAN | PC-R1 | PC-A1 (10.41.20.11) | ✅ Success | ✅ Success | — |
+| Server Access (Admin) | PC-A1 | Server (10.41.30.10) | ✅ Success | ✅ Success | [Screenshot](screenshots/admin-ping-server-ipv4.png) |
+| Server Access (Staff) | PC-R1 | Server (10.41.30.10) | ❌ **Blocked** | ❌ **Blocked** | [Screenshot](screenshots/staff-ping-server-ipv4.png) |
+| Internet Access | PC-R1 | ISP (10.41.1.2) | ✅ Success | ✅ Success | [Screenshot](screenshots/internet-connectivity.png) |
+
+### IPv6 Connectivity Tests
+
+| Test | Source | Destination | Expected | Actual | Evidence |
+|------|--------|-------------|----------|--------|----------|
+| Server Access (Admin) | PC-A1 | Server (FD00:108:1:30::10) | ✅ Success | ✅ Success | [Screenshot](screenshots/admin-ping-server-ipv6.png) |
+| Server Access (Staff) | PC-R1 | Server (FD00:108:1:30::10) | ❌ **Blocked** | ❌ **Blocked** | [Screenshot](screenshots/staff-ping-server-ipv6.png) |
+| Internet Access | PC-R1 | ISP (FD00:108:1:1::2) | ✅ Success | ✅ Success | — |
+
+### Dual-Stack Verification
+
+The PCs have both IPv4 and IPv6 addresses configured automatically:
+
+| PC | IPv4 Address (DHCP) | IPv6 Address (SLAAC) | Evidence |
+|----|---------------------|----------------------|----------|
+| PC-R1 | 10.41.10.11 | FD00:108:1:10::... | [Screenshot](screenshots/PC-R1-ipconfig.png) |
+| PC-A1 | 10.41.20.11 | FD00:108:1:20::... | [Screenshot](screenshots/PC-A1-ipconfig.png) |
+
+### Security ACL Verification
+
+The ACLs are working correctly and blocking unauthorized access:
+
+| ACL | Rule | Matches | Evidence |
+|-----|------|---------|----------|
+| IPv4 ACL 100 | Permit Admin → Server | Working | [Screenshot](screenshots/R1-ipv4-acl.png) |
+| IPv4 ACL 100 | Deny Staff → Server | **4+ matches** | [Screenshot](screenshots/R1-ipv4-acl.png) |
+| IPv6 ACL BLOCK-STAFF | Deny Staff → Server | Working | [Screenshot](screenshots/R1-ipv6-acl.png) |
+
+### Configuration Evidence
+
+| Device | What Was Verified | Screenshot |
+|--------|-------------------|------------|
+| R1 | IPv4 interfaces | [View](screenshots/R1-ipv4-interfaces.png) |
+| R1 | IPv6 interfaces | [View](screenshots/R1-ipv6-interfaces.png) |
+| R1 | IPv4 routing table | [View](screenshots/R1-ipv4-routes.png) |
+| R1 | IPv6 routing table | [View](screenshots/R1-ipv6-routes.png) |
+| R1 | IPv4 ACL | [View](screenshots/R1-ipv4-acl.png) |
+| R1 | IPv6 ACL | [View](screenshots/R1-ipv6-acl.png) |
+| SW1 | VLANs | [View](screenshots/SW1-vlans.png) |
+| SW1 | Trunks | [View](screenshots/SW1-trunks.png) |
+| ISP | IPv4 config | [View](screenshots/ISP-ipv4-config.png) |
+| ISP | IPv6 config | [View](screenshots/ISP-ipv6-config.png) |
 
 ### Planned IPv4 Connectivity Tests
 | Test | Source | Destination | Expected Result |
@@ -273,7 +325,7 @@ This section outlines the testing strategy that will be executed once the networ
 ## 📅 Milestone Progress
 
 - [x] **Milestone 1** - Client Design Review (28 August 2026) ✅
-- [ ] **Milestone 2** - Client Implementation Review (2 October 2026)
+- [x] **Milestone 2** - Client Implementation Review (2 October 2026) ✅
 - [ ] **Final Submission** - Complete Project Delivery (16 October 2026)
 
 ---
