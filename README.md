@@ -253,8 +253,6 @@ All tests have been executed successfully. The network is fully operational.
 
 | Test | Source | Destination | Expected | Actual | Evidence |
 |------|--------|-------------|----------|--------|----------|
-| Test | Source | Destination | Expected | Actual | Evidence |
-|------|--------|-------------|----------|--------|----------|
 | Server Access (Admin) | PC-A1 | Server (FD00:108:1:30::10) | ✅ Success | ✅ Success | [View](screenshots/admin-ping-server-ipv6.png) |
 | Server Access (Staff) | PC-R1 | Server (FD00:108:1:30::10) | ❌ **Blocked** | ❌ **Blocked** | [View](screenshots/staff-ping-server-ipv6.png) |
 | Internet Access | PC-R1 | ISP (FD00:108:1:1::2) | ✅ Success | ✅ Success | — |
