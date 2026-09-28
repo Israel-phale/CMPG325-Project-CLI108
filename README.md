@@ -245,16 +245,18 @@ All tests have been executed successfully. The network is fully operational.
 |------|--------|-------------|----------|--------|----------|
 | Intra-VLAN | PC-R1 | PC-R2 (10.41.10.10) | ✅ Success | ✅ Success | — |
 | Inter-VLAN | PC-R1 | PC-A1 (10.41.20.11) | ✅ Success | ✅ Success | — |
-| Server Access (Admin) | PC-A1 | Server (10.41.30.10) | ✅ Success | ✅ Success | [Screenshot](screenshots/admin-ping-server-ipv4.png) |
-| Server Access (Staff) | PC-R1 | Server (10.41.30.10) | ❌ **Blocked** | ❌ **Blocked** | [Screenshot](screenshots/staff-ping-server-ipv4.png) |
-| Internet Access | PC-R1 | ISP (10.41.1.2) | ✅ Success | ✅ Success | [Screenshot](screenshots/internet-connectivity.png) |
+| Server Access (Admin) | PC-A1 | Server (10.41.30.10) | ✅ Success | ✅ Success | [View](screenshots/admin-ping-server-ipv4.png) |
+| Server Access (Staff) | PC-R1 | Server (10.41.30.10) | ❌ **Blocked** | ❌ **Blocked** | [View](screenshots/staff-ping-server-ipv4.png) |
+| Internet Access | PC-R1 | ISP (10.41.1.2) | ✅ Success | ✅ Success | [View](screenshots/internet-connectivity.png) |
 
 ### IPv6 Connectivity Tests
 
 | Test | Source | Destination | Expected | Actual | Evidence |
 |------|--------|-------------|----------|--------|----------|
-| Server Access (Admin) | PC-A1 | Server (FD00:108:1:30::10) | ✅ Success | ✅ Success | [Screenshot](screenshots/admin-ping-server-ipv6.png) |
-| Server Access (Staff) | PC-R1 | Server (FD00:108:1:30::10) | ❌ **Blocked** | ❌ **Blocked** | [Screenshot](screenshots/staff-ping-server-ipv6.png) |
+| Test | Source | Destination | Expected | Actual | Evidence |
+|------|--------|-------------|----------|--------|----------|
+| Server Access (Admin) | PC-A1 | Server (FD00:108:1:30::10) | ✅ Success | ✅ Success | [View](screenshots/admin-ping-server-ipv6.png) |
+| Server Access (Staff) | PC-R1 | Server (FD00:108:1:30::10) | ❌ **Blocked** | ❌ **Blocked** | [View](screenshots/staff-ping-server-ipv6.png) |
 | Internet Access | PC-R1 | ISP (FD00:108:1:1::2) | ✅ Success | ✅ Success | — |
 
 ### Dual-Stack Verification
@@ -263,8 +265,8 @@ The PCs have both IPv4 and IPv6 addresses configured automatically:
 
 | PC | IPv4 Address (DHCP) | IPv6 Address (SLAAC) | Evidence |
 |----|---------------------|----------------------|----------|
-| PC-R1 | 10.41.10.11 | FD00:108:1:10::... | [Screenshot](screenshots/PC-R2-ipconfig.png) |
-| PC-A1 | 10.41.20.11 | FD00:108:1:20::... | [Screenshot](screenshots/PC-A2-ipconfig.png) |
+| PC-R1 | 10.41.10.11 | FD00:108:1:10::... | [View](screenshots/PC-R1-ipconfig.png) |
+| PC-A1 | 10.41.20.11 | FD00:108:1:20::... | [View](screenshots/PC-A1-ipconfig.png) |
 
 ### Security ACL Verification
 
@@ -272,9 +274,9 @@ The ACLs are working correctly and blocking unauthorized access:
 
 | ACL | Rule | Matches | Evidence |
 |-----|------|---------|----------|
-| IPv4 ACL 100 | Permit Admin → Server | Working | [Screenshot](screenshots/R1-ipv4-acl.png) |
-| IPv4 ACL 100 | Deny Staff → Server | **4+ matches** | [Screenshot](screenshots/R1-ipv4-acl.png) |
-| IPv6 ACL BLOCK-STAFF | Deny Staff → Server | Working | [Screenshot](screenshots/R1-ipv6-acl.png) |
+| IPv4 ACL 100 | Permit Admin → Server | Working | [View](screenshots/R1-ipv4-acl.png) |
+| IPv4 ACL 100 | Deny Staff → Server | **4+ matches** | [View](screenshots/R1-ipv4-acl.png) |
+| IPv6 ACL BLOCK-STAFF | Deny Staff → Server | Working | [View](screenshots/R1-ipv6-acl.png) |
 
 ### Configuration Evidence
 
@@ -291,34 +293,6 @@ The ACLs are working correctly and blocking unauthorized access:
 | ISP | IPv4 config | [View](screenshots/ISP-ipv4-config.png) |
 | ISP | IPv6 config | [View](screenshots/ISP-ipv6-config.png) |
 
-### Planned IPv4 Connectivity Tests
-| Test | Source | Destination | Expected Result |
-|------|--------|-------------|-----------------|
-| Intra-VLAN | PC-R1 | PC-R2 | ✅ Successful ping |
-| Inter-VLAN | PC-R1 | PC-A1 | ✅ Successful ping |
-| Server Access (Admin) | PC-A1 | Server | ✅ Successful ping |
-| Server Access (Staff) | PC-R1 | Server | ❌ **Failed ping (ACL Block)** |
-| Internet Access | PC-R1 | ISP | ✅ Successful ping |
-
-### Planned IPv6 Connectivity Tests
-| Test | Source | Destination | Expected Result |
-|------|--------|-------------|-----------------|
-| Intra-VLAN | PC-R1 | PC-R2 | ✅ Successful ping |
-| Inter-VLAN | PC-R1 | PC-A1 | ✅ Successful ping |
-| Server Access (Admin) | PC-A1 | Server | ✅ Successful ping |
-| Server Access (Staff) | PC-R1 | Server | ❌ **Failed ping (ACL Block)** |
-| Internet Access | PC-R1 | ISP | ✅ Successful ping |
-
-### IPv6 Verification Commands *(To be executed in Milestone 2)*
-| Command | Purpose |
-|---------|---------|
-| `show ipv6 interface brief` | Verify all IPv6 addresses on R1 |
-| `show ipv6 route` | Verify IPv6 routing table |
-| `show ipv6 access-list` | Verify IPv6 ACL is applied |
-| `ipconfig` (on each PC) | Verify PCs have both IPv4 AND IPv6 |
-| `ping FD00:108:1:30::10` | Test IPv6 connectivity to Server |
-
-*[Screenshots of all tests to be added in Milestone 2]*
 
 ---
 
@@ -360,5 +334,4 @@ Stateless Address Autoconfiguration allows PCs to auto-configure IPv6 addresses 
 **URL:** https://github.com/Israel-phale/CMPG325-Project-CLI108
 
 ---
-
-*This document contains all required elements for Milestone 1 as per the project brief: Client Requirements, Physical Topology, Logical Topology, IP Addressing Plan, and Initial GitHub Repository.*
+*This document contains all required elements for Milestone 2 as per the project brief, including implementation evidence and testing results*
