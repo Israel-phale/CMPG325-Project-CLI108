@@ -8,7 +8,6 @@
 | **Organisation** | Mmabatho Water Research Laboratory |
 | **Industry** | Research |
 | **Student Name** | Israel Phale |
-| **Student Number** | [41511425] |
 
 ---
 
@@ -291,15 +290,6 @@ The ACLs are working correctly and blocking unauthorized access:
 | ISP | IPv4 config | [View](screenshots/ISP-ipv4-config.png) |
 | ISP | IPv6 config | [View](screenshots/ISP-ipv6-config.png) |
 
-
----
-
-## 📅 Milestone Progress
-
-- [x] **Milestone 1** - Client Design Review (28 August 2026) ✅
-- [x] **Milestone 2** - Client Implementation Review (2 October 2026) ✅
-- [ ] **Final Submission** - Complete Project Delivery (16 October 2026)
-
 ---
 
 ## 📝 Design Justification
@@ -330,6 +320,3 @@ Stateless Address Autoconfiguration allows PCs to auto-configure IPv6 addresses 
 
 ## 🔗 GitHub Repository
 **URL:** https://github.com/Israel-phale/CMPG325-Project-CLI108
-
----
-*This document contains all required elements for Milestone 2 as per the project brief, including implementation evidence and testing results*
